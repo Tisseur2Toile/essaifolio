@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="overlay">
+    <img src="" id="zoom" alt="Captain America">
+  </div>
+  <h1>Ma page...</h1>
+  <figure>
+    <img src="captain-america.jpg" alt="Captain America">
+    <figcaption>
+      <h2>Captain America<br>
+      <small>Vote for TRUMP !</small></h2>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="agent-carter.jpg" alt="Agent Carter">
+    <figcaption>
+      <h2>Agent Carter<br>
+      <small>Loves CA !</small></h2>
+    </figcaption>
+  </figure>
+
+
+  <script>
+    $(document).ready(function() {
+      $('figcaption').on('click', function(e){
+        // On récupère l'img cliquée et on remplace jpg par big
+          var currentImage = $(this).prev('img').attr('src').replace('.jpg', '-big.jpg');
+
+        // On affecte l'URL calculée au zoom
+          $('#zoom').attr('src', currentImage);
+
+        // On affiche l'overlay
+          $('#overlay').slideDown();
+      });
+
+      $('#overlay, #zoom').on('click', function(){
+        $('#overlay').slideUp();
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
